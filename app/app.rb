@@ -2,7 +2,11 @@ module Padrino2091
   class App < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers
-    # enable :sessions
+
+    if ENV["SESSIONS"]
+      logger.info "Enabling sessions"
+      enable :sessions
+    end
 
     ##
     # Caching support.
